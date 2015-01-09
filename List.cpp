@@ -71,7 +71,7 @@ void List::DeleteNode(char delData){
 void List::PrintList(){
   ListNode *curr = Head;
 
-  while(curr->Next != NULL){
+  while(curr != NULL){
     cout << "Node: " << curr->Data << "(" << (int)curr->Data << ")" << curr->Count << endl;
     curr = curr->Next;
   }
@@ -103,9 +103,8 @@ void List::Sort(){
 
   int swap;
 
-  ListNode *curr = Head;
-
   do{
+    ListNode *curr = Head;
     swap = 0;
     while(curr->Next != NULL){
 
@@ -131,4 +130,7 @@ void List::Swap(ListNode *A, ListNode *B){
 
   A->Count = temp.Count;
   A->Data = temp.Data;
+
+  cout << " Swapped " << B->Data << " " << B->Count << " " << "with "
+       << A->Data << " " << A->Count << endl;
 }

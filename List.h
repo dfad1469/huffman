@@ -19,7 +19,7 @@ private:
   ListNode *Head;
   ListNode *Curr;
 
-  TreeNode *test;
+  TreeNode *Test;
 
 public:
 

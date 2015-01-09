@@ -8,13 +8,11 @@ public:
   int Count;
   char Data;
   ListNode *Next;
-  ListNode *Prev;
 
   ListNode() {
     Count = 1;
     Data = 0;
     Next = NULL;
-    Prev = NULL;
   }
 
 };
