@@ -8,23 +8,17 @@
 #ifndef TREE_H_
 #define TREE_H_
 
-class biNode {
-public:
-	char data;
-	biNode* leftPtr;
-	biNode* rightPtr;
-};
+#include "TreeNode.h"
 
 class Tree {
 private:
 
-	biNode *root;
-	biNode *curr;
+	TreeNode *Root;
+	TreeNode *Curr;
 
 public:
 	Tree();
-	void addNode();
-
+	void AddNode();
 };
 
 #endif /* TREE_H_ */

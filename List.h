@@ -10,48 +10,28 @@
 #include "Tree.h"
 #include <cstdlib>
 
- 
-class node{
-
-public:
-	int count;
-	char data;
-	node *next;
-	node *prev;
-
-	node() {
-		count = 1;
-		data = 0;
-		next = NULL;
-		prev = NULL;
-	}
-
-};
+#include "ListNode.h" 
+#include "TreeNode.h" 
 
 class List{
 private:
 
+  ListNode *Head;
+  ListNode *Curr;
 
-	node *head;
-	node *curr;
-	node *temp;
-	biNode *test;
-
+  TreeNode *test;
 
 public:
 
-	List();
-	void AddNode(char addData);
-	void DeleteNode(char delData);
-	void PrintList();
-	void checkForExisting(char addData);
-	void AddToList(char ch);
-	void Sort();
-	void Swap(node *A, node *B);
+  List();
+  void AddNode(char addData);
+  void DeleteNode(char delData);
+  void PrintList();
+  void checkForExisting(char addData);
+  void AddToList(char ch);
+  void Sort();
+  void Swap(ListNode *a, ListNode *b);
 
 };
-
-
-
 
 #endif /* LIST_H_ */

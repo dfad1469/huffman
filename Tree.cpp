@@ -8,15 +8,12 @@
 #include <cstdlib>
 
 Tree::Tree() {
-	root = NULL;
-
+  Root = NULL;
 }
 
-void Tree::addNode() {
-	if (root == NULL) {
-
-		biNode *biNode;
-	}
-
+void Tree::AddNode() {
+  if (Root == NULL) {
+    TreeNode *biNode;
+  }
 }
 

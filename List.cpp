@@ -15,133 +15,120 @@ using namespace std;
 int length = 0;
 
 List::List(){
-  head = NULL;
-  curr = NULL;
-  temp = NULL;
+  Head = NULL;
 }
-
 
 void List::AddNode(char addData){
 
-  node *n = new node();
-  n->next = NULL;
-  n->prev = NULL;
-  n->data = addData;
+  ListNode *n = new ListNode();
+  ListNode *curr = Head;
 
-  if(head != NULL){
-    curr = head;
+  n->Next = NULL;
+  n->Data = addData;
 
-    while(curr->next != NULL){
+  if(Head != NULL){
+    curr = Head;
 
-
-    curr = curr->next;
+    while(curr->Next != NULL){
+      curr = curr->Next;
     }
 
-    curr->next = n;
-
+    curr->Next = n;
   }
   else
   {
-    head = n;
-
+    Head = n;
   }
 
   length++;
-
-
 }
 
 void List::DeleteNode(char delData){
-  node *delPtr = NULL;
-  temp = head;
-  curr = head;
+  ListNode *delPtr = NULL;
 
-  while(curr != NULL && curr->data != delData){
+  ListNode *temp = Head;
+  ListNode *curr = Head;
+
+  while(curr != NULL && curr->Data != delData){
     temp = curr;
-    curr = curr->next;
-
+    curr = curr->Next;
   }
+
   if(curr == NULL){
     cout << delData << " was not in the list" << endl;
     delete delPtr;
-  }
-
-  else{
+  } 
+  else
+  {
     delPtr = curr;
-    curr = curr->next;
-    temp->next = curr;
+    curr = curr->Next;
+    temp->Next = curr;
     delete delPtr;
     cout << "The vale " << delData << "was deleted" << endl;
-
   }
 }
 
-
-
 void List::PrintList(){
-  curr = head;
-  while(curr->next != NULL){
-    cout << "Node: " << curr->data << "(" << (int)curr->data << ")" << curr->count << endl;
-    curr = curr->next;
-  }
+  ListNode *curr = Head;
 
+  while(curr->Next != NULL){
+    cout << "Node: " << curr->Data << "(" << (int)curr->Data << ")" << curr->Count << endl;
+    curr = curr->Next;
+  }
 }
 
 void List::AddToList(char ch){
+
+  ListNode *curr = Head;
         
-  if(head == NULL){
+  if(Head == NULL){
     AddNode(ch);
   }
   else
   {
-    curr = head;
-    while(curr != NULL && curr->data != ch){
-    curr = curr->next;
+    while(curr != NULL && curr->Data != ch){
+      curr = curr->Next;
     }
     if(curr == NULL){
       AddNode(ch);
       cout << ch << " Did not exist in the list and was added."<< endl;
     } else {
-      curr->count++;
-
-      cout << ch << "existed in the list and it's count was incremented" << endl;
-
+      curr->Count++;
+      cout << ch << "existed in the list and it's Count was incremented" << endl;
     }
-
   }
 }
 
 void List::Sort(){
 
   int swap;
+
+  ListNode *curr = Head;
+
   do{
     swap = 0;
-    curr = head;
-    while(curr->next != NULL){
+    while(curr->Next != NULL){
 
-      if(curr->count > curr->next->count ){
-        Swap(curr,curr->next);
+      if(curr->Count > curr->Next->Count ){
+        Swap(curr,curr->Next);
         swap = 1;
-        cout << " Swapped " << curr->data << " " << curr ->count << " " << "with "
-            << curr->next->data << " " << curr->next->count << endl;
+        cout << " Swapped " << curr->Data << " " << curr ->Count << " " << "with "
+            << curr->Next->Data << " " << curr->Next->Count << endl;
       }
-      curr = curr->next;
+      curr = curr->Next;
     }
-
-    } while(swap == 1);
+  } while(swap == 1);
 }
 
-void List::Swap(node *A, node *B){
-  node *Temp = new node();
+void List::Swap(ListNode *A, ListNode *B){
+  ListNode temp;
 
-  Temp->data = B->data;
-  Temp->count = B->count;
+  temp.Data = B->Data;
+  temp.Count = B->Count;
 
-  B->data = A->data;
-  B->count = A->count;
+  B->Data = A->Data;
+  B->Count = A->Count;
 
-  A->count = Temp->count;
-  A->data = Temp->data;
-
-  delete Temp;
+  A->Count = temp.Count;
+  A->Data = temp.Data;
 }
