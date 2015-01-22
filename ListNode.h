@@ -1,6 +1,5 @@
 #ifndef LIST_NODE_H_
 #define LIST_NODE_H_
-
 class ListNode{
 
 public:

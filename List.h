@@ -7,7 +7,6 @@
 #ifndef LIST_H_
 #define LIST_H_
 
-#include "Tree.h"
 #include <cstdlib>
 
 #include "ListNode.h" 
@@ -16,15 +15,16 @@
 class List{
 private:
 
+public:
   ListNode *Head;
   ListNode *Curr;
 
   TreeNode *Test;
 
-public:
-
   List();
+  
   void AddNode(char addData);
+  void AddNode(TreeNode *TreeItem);
   void DeleteNode(char delData);
   void PrintList();
   void checkForExisting(char addData);
@@ -32,6 +32,7 @@ public:
   void Sort();
   void Swap(ListNode *a, ListNode *b);
 
+  int Length;
 };
 
 #endif /* LIST_H_ */

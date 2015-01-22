@@ -8,7 +8,11 @@
 #ifndef TREE_H_
 #define TREE_H_
 
+#include <cstdlib>
 #include "TreeNode.h"
+#include "ListNode.h"
+#include "List.h"
+
 
 class Tree {
 private:
@@ -18,7 +22,8 @@ private:
 
 public:
 	Tree();
-	void AddNode();
+  void BuildTree(List stringData);
+  void AddNode(ListNode *A, ListNode *B );
 };
 
 #endif /* TREE_H_ */

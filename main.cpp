@@ -9,17 +9,19 @@
 #include "List.h"
 #include <fstream>
 #include <iostream>
+#include "Tree.h"
 
 using namespace std;
 
 int main(int argc, const char* argv[]){
 
 	List Text;
+  Tree HuffmanTree;
 
-        if(argc != 2) {
+  if(argc != 2) {
           cout << "Usage: huff <filename>" << endl;
-          return 1;
-        }
+  return 1;
+   }
 
 	ifstream text(argv[1]);
 	char ch;
@@ -28,11 +30,11 @@ int main(int argc, const char* argv[]){
 
 	}
 	text.close();
+  HuffmanTree.BuildTree(Text);
+   
 
-	Text.PrintList();
-	Text.Sort();
-	Text.PrintList();
-
+ 
+	
 	return 0;
 }
 

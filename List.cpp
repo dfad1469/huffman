@@ -12,10 +12,10 @@
 
 using namespace std;
 
-int length = 0;
 
 List::List(){
   Head = NULL;
+  Length = 0;
 }
 
 void List::AddNode(char addData){
@@ -39,8 +39,34 @@ void List::AddNode(char addData){
   {
     Head = n;
   }
+  Length++;
+}
 
-  length++;
+void List::AddNode(TreeNode *treeItem){
+
+  ListNode *n = new ListNode();
+  ListNode *curr = Head;
+
+  n->Next = NULL;
+  n->Count = treeItem->Value;
+  n->Data = '?';
+  if(Head != NULL){
+    curr = Head;
+
+    while(curr->Next != NULL){
+      curr = curr->Next;
+    }
+
+    curr->Next = n;
+  }
+  else
+  {
+    Head = n;
+  }
+  Length++;
+  
+
+
 }
 
 void List::DeleteNode(char delData){
@@ -58,6 +84,13 @@ void List::DeleteNode(char delData){
     cout << delData << " was not in the list" << endl;
     delete delPtr;
   } 
+
+  else if(curr == Head){
+  Head = curr->Next;
+  delete curr;
+  cout << "The Head of the list was deleted." << endl;
+
+  }
   else
   {
     delPtr = curr;
@@ -66,6 +99,8 @@ void List::DeleteNode(char delData){
     delete delPtr;
     cout << "The vale " << delData << "was deleted" << endl;
   }
+
+  Length--;
 }
 
 void List::PrintList(){
@@ -75,6 +110,7 @@ void List::PrintList(){
     cout << "Node: " << curr->Data << "(" << (int)curr->Data << ")" << curr->Count << endl;
     curr = curr->Next;
   }
+  cout << endl << Length << endl;	
 }
 
 void List::AddToList(char ch){
@@ -111,8 +147,6 @@ void List::Sort(){
       if(curr->Count > curr->Next->Count ){
         Swap(curr,curr->Next);
         swap = 1;
-        cout << " Swapped " << curr->Data << " " << curr ->Count << " " << "with "
-            << curr->Next->Data << " " << curr->Next->Count << endl;
       }
       curr = curr->Next;
     }
