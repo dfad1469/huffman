@@ -50,6 +50,7 @@ void List::AddNode(TreeNode *treeItem){
   n->Next = NULL;
   n->Count = treeItem->Value;
   n->Data = '?';
+  n->TreeHead = treeItem;
   if(Head != NULL){
     curr = Head;
 

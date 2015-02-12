@@ -1,6 +1,5 @@
 #ifndef TREE_NODE_H_
 #define TREE_NODE_H_
-#include "ListNode.h"
 
 class TreeNode {
 public:
@@ -8,7 +7,15 @@ public:
   char Data;
   TreeNode* LeftPtr;
   TreeNode* RightPtr;
-  
+ 
+
+  TreeNode(){
+  Value = NULL;
+  LeftPtr= NULL;
+  RightPtr = NULL;
+  Data = NULL;
+
+  } 
 
   TreeNode(int sum){
   Value = sum;
@@ -18,7 +25,7 @@ public:
 
   TreeNode(int value, char ch){
   Value = value;
-  Data = Data;
+  Data = ch;
   LeftPtr = NULL;
   RightPtr = NULL;
 
