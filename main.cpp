@@ -15,27 +15,28 @@ using namespace std;
 
 int main(int argc, const char* argv[]){
 
-	List Text;
+  List Text;
   Tree HuffmanTree;
 
   if(argc != 2) {
-          cout << "Usage: huff <filename>" << endl;
-  return 1;
-   }
+    cout << "Usage: huff <filename>" << endl;
+    return 1;
+  }
 
-	ifstream text(argv[1]);
-	char ch;
-	while(text.get(ch)){
-		Text.AddToList(ch);
+  ifstream text(argv[1]);
 
-	}
-	text.close();
+  char ch;
+  while(text.get(ch)){
+    Text.AddToList(ch);
+  }
+
+  text.close();
+
+  Text.PrintList();
+
   HuffmanTree.BuildTree(Text);
-   
-
- 
-	
-	return 0;
+  
+  return 0;
 }
 
 

@@ -14,10 +14,11 @@ Tree::Tree() {
   Root = NULL;
 }
 
-
 TreeNode *temp;
 TreeNode *root;
+
 void Tree::BuildTree(List stringData){
+
   while(stringData.Length > 1){
    stringData.Sort();
    stringData.PrintList();
@@ -34,7 +35,7 @@ void Tree::BuildTree(List stringData){
   root = temp;
   TreeNode *next = root;
   while(next->LeftPtr !=NULL){
-  next = next->LeftPtr;
+    next = next->LeftPtr;
   }
 
   cout << endl << "The furthest character to the left is " <<  next->Data << " " << next->Value << endl;
@@ -42,9 +43,8 @@ void Tree::BuildTree(List stringData){
   next = root;
 
   while(next->RightPtr!=NULL){
-
-  next = next->RightPtr;
- }
+    next = next->RightPtr;
+  }
 
  cout << endl << "The furthest character to the right is " << next->Data << " " << next->Value << endl;
 }
@@ -54,36 +54,19 @@ void Tree::AddNode(ListNode *A, ListNode *B){
 
   TreeNode *n = new TreeNode();
 
-  if(A->TreeHead != NULL && B-> TreeHead == NULL){
-
+  if(A->TreeHead != NULL && B->TreeHead == NULL){
     n->LeftPtr = A->TreeHead;
     n->RightPtr = new TreeNode(B->Count,B->Data);
-    
-    
-
   }else if(A->TreeHead == NULL && B->TreeHead != NULL){
     n->LeftPtr = new TreeNode(A->Count, A->Data);
     n->RightPtr = B->TreeHead;
-
-
-
   }else if(A->TreeHead != NULL && B->TreeHead != NULL){
-  n->LeftPtr = A->TreeHead;
-  n->RightPtr = B->TreeHead;
-
-
+    n->LeftPtr = A->TreeHead;
+    n->RightPtr = B->TreeHead;
   }else{ 
-
     n->LeftPtr = new TreeNode(A->Count,A->Data);
     n->RightPtr = new TreeNode(B->Count,A->Data);
-
-
-
-
-
-
   }
-
 
   n->Value = n->LeftPtr->Value + n->RightPtr->Value;
 

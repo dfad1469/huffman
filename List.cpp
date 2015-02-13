@@ -111,7 +111,7 @@ void List::PrintList(){
     cout << "Node: " << curr->Data << "(" << (int)curr->Data << ")" << curr->Count << endl;
     curr = curr->Next;
   }
-  cout << endl << Length << endl;	
+  cout << "List Length: " << Length << endl;	
 }
 
 void List::AddToList(char ch){
@@ -128,10 +128,10 @@ void List::AddToList(char ch){
     }
     if(curr == NULL){
       AddNode(ch);
-      cout << ch << " Did not exist in the list and was added."<< endl;
+//      cout << ch << " Did not exist in the list and was added."<< endl;
     } else {
       curr->Count++;
-      cout << ch << "existed in the list and it's Count was incremented" << endl;
+//      cout << ch << "existed in the list and it's Count was incremented" << endl;
     }
   }
 }

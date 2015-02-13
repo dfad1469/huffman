@@ -8,27 +8,24 @@ public:
   TreeNode* LeftPtr;
   TreeNode* RightPtr;
  
-
   TreeNode(){
-  Value = NULL;
-  LeftPtr= NULL;
-  RightPtr = NULL;
-  Data = NULL;
-
+    Value = 0;
+    LeftPtr= NULL;
+    RightPtr = NULL;
+    Data = 0;
   } 
 
   TreeNode(int sum){
-  Value = sum;
-  LeftPtr = NULL;
-  RightPtr = NULL;
+    Value = sum;
+    LeftPtr = NULL;
+    RightPtr = NULL;
   }
 
   TreeNode(int value, char ch){
-  Value = value;
-  Data = ch;
-  LeftPtr = NULL;
-  RightPtr = NULL;
-
+    Value = value;
+    Data = ch;
+    LeftPtr = NULL;
+    RightPtr = NULL;
   }
 
 };
