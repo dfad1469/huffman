@@ -22,7 +22,8 @@ void List::AddNode(char addData){
 
   ListNode *n = new ListNode();
   ListNode *curr = Head;
-
+  
+  n->TreeHead = NULL;
   n->Next = NULL;
   n->Data = addData;
 
@@ -92,13 +93,14 @@ void List::DeleteNode(char delData){
   cout << "The Head of the list was deleted." << endl;
 
   }
+
   else
   {
     delPtr = curr;
     curr = curr->Next;
     temp->Next = curr;
     delete delPtr;
-    cout << "The vale " << delData << "was deleted" << endl;
+    cout << "The value " << delData << "was deleted" << endl;
   }
 
   Length--;
@@ -157,12 +159,15 @@ void List::Sort(){
 void List::Swap(ListNode *A, ListNode *B){
   ListNode temp;
 
+  temp.TreeHead = B->TreeHead;
   temp.Data = B->Data;
   temp.Count = B->Count;
 
   B->Data = A->Data;
   B->Count = A->Count;
+  B->TreeHead = A->TreeHead;
 
+  A->TreeHead = temp.TreeHead;
   A->Count = temp.Count;
   A->Data = temp.Data;
 

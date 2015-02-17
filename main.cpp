@@ -31,7 +31,7 @@ int main(int argc, const char* argv[]){
 	}
 	text.close();
   HuffmanTree.BuildTree(Text);
-   
+  HuffmanTree.PrintTree(HuffmanTree.Root,HuffmanTree.Root->Path);   
 
  
 	

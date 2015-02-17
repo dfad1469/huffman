@@ -12,18 +12,19 @@
 #include "TreeNode.h"
 #include "ListNode.h"
 #include "List.h"
-
+#include <iostream>
 
 class Tree {
 private:
 
-	TreeNode *Root;
-	TreeNode *Curr;
+//	TreeNode *Curr;
 
 public:
 	Tree();
   void BuildTree(List stringData);
   void AddNode(ListNode *A, ListNode *B );
+  void PrintTree(TreeNode *root, std::string Path);
+  TreeNode *Root;
 };
 
 #endif /* TREE_H_ */

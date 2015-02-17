@@ -1,3 +1,6 @@
+#include<iostream>
+#include<cstdlib>
+
 #ifndef TREE_NODE_H_
 #define TREE_NODE_H_
 
@@ -7,13 +10,13 @@ public:
   char Data;
   TreeNode* LeftPtr;
   TreeNode* RightPtr;
- 
+  std::string Path; 
 
   TreeNode(){
-  Value = NULL;
+  Value = 0;
   LeftPtr= NULL;
   RightPtr = NULL;
-  Data = NULL;
+  Data = 0;
 
   } 
 
