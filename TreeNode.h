@@ -10,28 +10,27 @@ public:
   char Data;
   TreeNode* LeftPtr;
   TreeNode* RightPtr;
-  std::string Path; 
+  std::string Path;
 
+ 
   TreeNode(){
-  Value = 0;
-  LeftPtr= NULL;
-  RightPtr = NULL;
-  Data = 0;
-
+    Value = 0;
+    LeftPtr= NULL;
+    RightPtr = NULL;
+    Data = 0;
   } 
 
   TreeNode(int sum){
-  Value = sum;
-  LeftPtr = NULL;
-  RightPtr = NULL;
+    Value = sum;
+    LeftPtr = NULL;
+    RightPtr = NULL;
   }
 
   TreeNode(int value, char ch){
-  Value = value;
-  Data = ch;
-  LeftPtr = NULL;
-  RightPtr = NULL;
-
+    Value = value;
+    Data = ch;
+    LeftPtr = NULL;
+    RightPtr = NULL;
   }
 
 };
