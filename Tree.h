@@ -20,11 +20,14 @@ private:
 //	TreeNode *Curr;
 
 public:
-	Tree();
+  Tree();
   void BuildTree(List stringData);
   void AddNode(ListNode *A, ListNode *B );
   void PrintTree(TreeNode *root, std::string Path);
   TreeNode *Root;
+  ListNode *Dictionary[256];
+  void PrintDictionary();
+  TreeNode *temp;
 };
 
 #endif /* TREE_H_ */

@@ -12,9 +12,13 @@
 using namespace std;
 Tree::Tree() {
   Root = NULL;
+  for(int i = 0; i<255; i++){
+  Dictionary[i]=NULL;
+  } 
+  temp=NULL;
 }
 
-TreeNode *temp;
+
 
 void Tree::BuildTree(List stringData){
 
@@ -100,6 +104,9 @@ void Tree::PrintTree(TreeNode *root, string Path){
 
   if(root->LeftPtr == NULL && root->RightPtr == NULL){
   cout << root->Data << " " << Path << endl;
+ // ListNode *n = new ListNode();
+  Dictionary[(int)root->Data] = new ListNode();
+  Dictionary[(int)root->Data]->Path = Path;
   }
 
   if(root->LeftPtr != NULL){
@@ -112,4 +119,15 @@ void Tree::PrintTree(TreeNode *root, string Path){
 
   }
 
+}
+
+
+void Tree::PrintDictionary(){
+for(int i = 0; i<255; i++){
+
+  if(Dictionary[i] !=NULL){
+  cout << (char)i << " " << Dictionary[i]->Path << endl;
+
+  }
+ }
 }

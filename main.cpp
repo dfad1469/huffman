@@ -36,6 +36,7 @@ int main(int argc, const char* argv[]){
 
   HuffmanTree.BuildTree(Text);
   HuffmanTree.PrintTree(HuffmanTree.Root, HuffmanTree.Root->Path);  
+  HuffmanTree.PrintDictionary();
   return 0;
 }
 
