@@ -7,18 +7,17 @@
 #include "Tree.h"
 #include <cstdlib>
 #include <iostream>
-
+#include <bitset>
 
 using namespace std;
+
 Tree::Tree() {
   Root = NULL;
   for(int i = 0; i<255; i++){
-  Dictionary[i]=NULL;
+    Dictionary[i]=NULL;
   } 
   temp=NULL;
 }
-
-
 
 void Tree::BuildTree(List stringData){
 
@@ -100,22 +99,24 @@ void Tree::AddNode(ListNode *A, ListNode *B){
 }
 
 
-void Tree::PrintTree(TreeNode *root, string Path){
+void Tree::PrintTree(TreeNode *root, unsigned int BiPath, unsigned int Depth){
 
   if(root->LeftPtr == NULL && root->RightPtr == NULL){
-  cout << root->Data << " " << Path << endl;
- // ListNode *n = new ListNode();
+ // cout << root->Data << " " << Path << endl;
   Dictionary[(int)root->Data] = new ListNode();
-  Dictionary[(int)root->Data]->Path = Path;
+  Dictionary[(int)root->Data]->BiPath = BiPath;
+  Dictionary[(int)root->Data]->Depth = Depth;
   }
 
   if(root->LeftPtr != NULL){
-  PrintTree(root->LeftPtr, Path+'0');
+  cout << Depth << endl;
+  PrintTree(root->LeftPtr, BiPath, Depth+1);
   }
   
 
   if(root->RightPtr != NULL){
-  PrintTree(root->RightPtr, Path+'1');
+  BiPath = BiPath|(1<< Depth);
+  PrintTree(root->RightPtr, BiPath, Depth+1);
 
   }
 
@@ -123,11 +124,15 @@ void Tree::PrintTree(TreeNode *root, string Path){
 
 
 void Tree::PrintDictionary(){
-for(int i = 0; i<255; i++){
+  for(int i = 0; i<255; i++){
 
-  if(Dictionary[i] !=NULL){
-  cout << (char)i << " " << Dictionary[i]->Path << endl;
-
+    if(Dictionary[i] !=NULL){
+      cout << (char)i << " ";
+      for(int count =0 ; count <=Dictionary[i]->Depth-1; count++){
+        //unsigned int ch = (Dictionary[i]->BiPath>>count)&1;
+        cout  << ((Dictionary[i]->BiPath>>count)&1);
+      } 
+      cout << endl;
+    }
   }
- }
 }

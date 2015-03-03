@@ -1,7 +1,7 @@
 CC=g++
-CFLAGS=-c -Wall -g
+CFLAGS=-c -w -g
 LDFLAGS=
-SOURCES=main.cpp List.cpp Tree.cpp
+SOURCES=main.cpp List.cpp Tree.cpp Writer.cpp 
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=huffman
 

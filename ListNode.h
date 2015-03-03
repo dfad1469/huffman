@@ -6,16 +6,19 @@
 class ListNode{
 
 public:
-  std::string Path;
+  unsigned int Depth;
+  unsigned int BiPath;
   int Count;
   char Data;
   ListNode *Next;
   TreeNode *TreeHead;
   ListNode() {
+    BiPath = 0;
     Count = 1;
     Data = 0;
     Next = NULL;
     TreeHead = NULL;
+    Depth = 0;
   }
 
 };

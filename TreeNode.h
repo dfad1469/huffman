@@ -10,8 +10,6 @@ public:
   char Data;
   TreeNode* LeftPtr;
   TreeNode* RightPtr;
-  std::string Path;
-
  
   TreeNode(){
     Value = 0;

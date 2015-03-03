@@ -23,7 +23,7 @@ public:
   Tree();
   void BuildTree(List stringData);
   void AddNode(ListNode *A, ListNode *B );
-  void PrintTree(TreeNode *root, std::string Path);
+  void PrintTree(TreeNode *root, unsigned int BiPath,unsigned int Depth);
   TreeNode *Root;
   ListNode *Dictionary[256];
   void PrintDictionary();
