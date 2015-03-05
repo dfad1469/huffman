@@ -41,7 +41,7 @@ int main(int argc, const char* argv[]){
   HuffmanTree.PrintDictionary();
   Translator.Translate(HuffmanTree.Dictionary,argv[1]);
   cout << HuffmanTree.Root->LeftPtr->LeftPtr->LeftPtr->RightPtr->Data << endl;
-  Reader.ReadFile(argv[1],HuffmanTree);
+  Reader.ReadFile("file.packed",HuffmanTree);
   
   return 0;
 }
