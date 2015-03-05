@@ -7,7 +7,6 @@ void Read::ReadFile(std::string filename, Tree HuffmanTree){
   std::ifstream *infile = new std::ifstream(filename.c_str(), std::ifstream::in);
 
   TreeNode *Node = HuffmanTree.Root;
-  std::cout << Node->LeftPtr->LeftPtr->LeftPtr->RightPtr->Data;   
   char ch;
   while(infile->get(ch)){
   
@@ -23,8 +22,10 @@ void Read::ReadFile(std::string filename, Tree HuffmanTree){
         Node = Node->LeftPtr;
 
       }
+      std::bitset<8> shift(1<<i);
       std::bitset<8> byteIn(ch);
       std::cout<< std::endl <<  byteIn << std::endl;
+      std::cout << shift << std::endl;
     }
 
   }
