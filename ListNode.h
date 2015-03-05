@@ -6,8 +6,8 @@
 class ListNode{
 
 public:
-  unsigned int Depth;
-  unsigned int BiPath;
+  int Depth;
+  unsigned char BiPath;
   int Count;
   char Data;
   ListNode *Next;

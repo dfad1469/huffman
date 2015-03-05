@@ -11,6 +11,7 @@
 #include <iostream>
 #include "Tree.h"
 #include "Writer.h"
+#include "Read.h"
 using namespace std;
 
 int main(int argc, const char* argv[]){
@@ -18,7 +19,7 @@ int main(int argc, const char* argv[]){
   List Text;
   Tree HuffmanTree;
   Writer Translator;
-
+  Read Reader;
   if(argc != 2) {
     cout << "Usage: huff <filename>" << endl;
     return 1;
@@ -39,6 +40,9 @@ int main(int argc, const char* argv[]){
   HuffmanTree.PrintTree(HuffmanTree.Root, 0,0);  
   HuffmanTree.PrintDictionary();
   Translator.Translate(HuffmanTree.Dictionary,argv[1]);
+  cout << HuffmanTree.Root->LeftPtr->LeftPtr->LeftPtr->RightPtr->Data << endl;
+  Reader.ReadFile(argv[1],HuffmanTree);
+  
   return 0;
 }
 

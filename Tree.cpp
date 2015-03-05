@@ -99,12 +99,28 @@ void Tree::AddNode(ListNode *A, ListNode *B){
 }
 
 
-void Tree::PrintTree(TreeNode *root, unsigned int BiPath, unsigned int Depth){
+void Tree::PrintTree(TreeNode *root, unsigned char BiPath, int Depth){
 
+  int tempShift =0;
+  char TempPath = 0;
   if(root->LeftPtr == NULL && root->RightPtr == NULL){
  // cout << root->Data << " " << Path << endl;
   Dictionary[(int)root->Data] = new ListNode();
-  Dictionary[(int)root->Data]->BiPath = BiPath;
+  for(int i = Depth-1; i>=0;i--){
+      if(((BiPath>>i)&1)==1){
+        TempPath = TempPath|(1<<tempShift);
+        cout << "Anded succesfully " << endl;
+        bitset<8> test2(TempPath);
+        cout << endl << test2 << endl;
+      }
+      tempShift++;
+      bitset<8> test(BiPath);
+      bitset<8> test2(TempPath);
+
+      cout<< test << " " << test2 << endl;
+    }
+
+  Dictionary[(int)root->Data]->BiPath = TempPath;
   Dictionary[(int)root->Data]->Depth = Depth;
   }
 
