@@ -83,14 +83,14 @@ void List::DeleteNode(char delData){
   }
 
   if(curr == NULL){
-    cout << delData << " was not in the list" << endl;
+//    cout << delData << " was not in the list" << endl;
     delete delPtr;
   } 
 
   else if(curr == Head){
   Head = curr->Next;
   delete curr;
-  cout << "The Head of the list was deleted." << endl;
+//  cout << "The Head of the list was deleted." << endl;
 
   }
 
@@ -100,7 +100,7 @@ void List::DeleteNode(char delData){
     curr = curr->Next;
     temp->Next = curr;
     delete delPtr;
-    cout << "The value " << delData << "was deleted" << endl;
+//    cout << "The value " << delData << "was deleted" << endl;
   }
 
   Length--;
@@ -170,6 +170,6 @@ void List::Swap(ListNode *A, ListNode *B){
   A->Count = temp.Count;
   A->Data = temp.Data;
 
-  cout << " Swapped " << B->Data << " " << B->Count << " " << "with "
-       << A->Data << " " << A->Count << endl;
+//  cout << " Swapped " << B->Data << " " << B->Count << " " << "with "
+//       << A->Data << " " << A->Count << endl;
 }

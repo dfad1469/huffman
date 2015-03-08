@@ -15,7 +15,7 @@
 using namespace std;
 
 int main(int argc, const char* argv[]){
-
+  long WriteCount = 0;
   List Text;
   Tree HuffmanTree;
   Writer Translator;
@@ -39,9 +39,8 @@ int main(int argc, const char* argv[]){
   HuffmanTree.BuildTree(Text);
   HuffmanTree.PrintTree(HuffmanTree.Root, 0,0);  
   HuffmanTree.PrintDictionary();
-  Translator.Translate(HuffmanTree.Dictionary,argv[1]);
-  cout << HuffmanTree.Root->LeftPtr->LeftPtr->LeftPtr->RightPtr->Data << endl;
-  Reader.ReadFile("file.packed",HuffmanTree);
+  Translator.Translate(HuffmanTree.Dictionary,argv[1],WriteCount);
+  Reader.ReadFile("file.packed",HuffmanTree,WriteCount);
   
   return 0;
 }

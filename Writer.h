@@ -14,7 +14,7 @@ Writer() { }
 
 char getByte();
 void writeChar(char *byte, std::ofstream *writer);
-void Translate(ListNode *Dictionary[],std::string filename);
+void Translate(ListNode *Dictionary[],std::string filename, long &WriteCount);
 
 
 

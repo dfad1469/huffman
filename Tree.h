@@ -28,6 +28,7 @@ public:
   ListNode *Dictionary[256];
   void PrintDictionary();
   TreeNode *temp;
+  long WriteCount;
 };
 
 #endif /* TREE_H_ */

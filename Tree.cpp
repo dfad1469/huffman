@@ -17,6 +17,8 @@ Tree::Tree() {
     Dictionary[i]=NULL;
   } 
   temp=NULL;
+
+  WriteCount = 0;
 }
 
 void Tree::BuildTree(List stringData){
@@ -25,28 +27,13 @@ void Tree::BuildTree(List stringData){
    stringData.Sort();
    stringData.PrintList();
    
-   cout << "The List is " <<  stringData.Length << " items long." << endl;
    AddNode(stringData.Head,stringData.Head->Next);
    stringData.AddNode(temp);
    stringData.DeleteNode(stringData.Head->Next->Data);
    stringData.DeleteNode(stringData.Head->Data);  
-   cout << "The list is now " << stringData.Length << " items long." << endl;
   }
 
-// Testing to see if I can get to the node all the way at the left
   Root = temp;
-  TreeNode *next = Root;
-  while(next->LeftPtr !=NULL){
-    next = next->LeftPtr;
-  }
-
-  cout << endl << "The furthest character to the left is " <<  next->Data << " " << next->Value << endl;
-
-  next = Root;
-
-  while(next->RightPtr!=NULL){
-    next = next->RightPtr;
-  }
 
 }
 
@@ -73,51 +60,23 @@ void Tree::AddNode(ListNode *A, ListNode *B){
 
   temp = n;
 
-/*  if(Root == NULL){
-  Root = new TreeNode(A->Count + B->Count);
-  Root->LeftPtr = new TreeNode(A->Count, A->Data);
-  Root->Data = '?';
-  Root->RightPtr = new TreeNode(B->Count, B->Data);
-  
-  cout << endl <<"  " << Root->Value <<"  "  << endl;
-  cout <<Root->LeftPtr->Value << "  " << Root->RightPtr->Value << endl;
-
-  }else{
-
-  TreeNode *rightNode =  new TreeNode(A->Count + B->Count);
-  TreeNode *temp = new TreeNode(Root->Value + rightNode->Value);
-  temp->LeftPtr = Root;
-  temp->RightPtr = rightNode;
-  Root = temp;
-  
-  cout << endl <<"  " << Root->Value <<"  "  << endl;
-  cout <<Root->LeftPtr->Value << "  " << Root->RightPtr->Value << endl;
-  
-  
-  }
-*/
 }
 
 
 void Tree::PrintTree(TreeNode *root, unsigned char BiPath, int Depth){
 
+  if(root == NULL) return;
+
   int tempShift =0;
   char TempPath = 0;
   if(root->LeftPtr == NULL && root->RightPtr == NULL){
- // cout << root->Data << " " << Path << endl;
   Dictionary[(int)root->Data] = new ListNode();
   for(int i = Depth-1; i>=0;i--){
       if(((BiPath>>i)&1)==1){
         TempPath = TempPath|(1<<tempShift);
-        cout << "Anded succesfully " << endl;
-        bitset<8> test2(TempPath);
-        cout << endl << test2 << endl;
       }
       tempShift++;
-      bitset<8> test(BiPath);
-      bitset<8> test2(TempPath);
 
-      cout<< test << " " << test2 << endl;
     }
 
   Dictionary[(int)root->Data]->BiPath = TempPath;
@@ -125,30 +84,33 @@ void Tree::PrintTree(TreeNode *root, unsigned char BiPath, int Depth){
   }
 
   if(root->LeftPtr != NULL){
-  cout << Depth << endl;
-  PrintTree(root->LeftPtr, BiPath, Depth+1);
+    PrintTree(root->LeftPtr, BiPath, Depth+1);
   }
   
 
   if(root->RightPtr != NULL){
-  BiPath = BiPath|(1<< Depth);
-  PrintTree(root->RightPtr, BiPath, Depth+1);
-
+    BiPath = BiPath|(1<< Depth);
+    PrintTree(root->RightPtr, BiPath, Depth+1);
   }
 
 }
 
 
 void Tree::PrintDictionary(){
+  int treeCount = 0;
   for(int i = 0; i<255; i++){
-
     if(Dictionary[i] !=NULL){
-      cout << (char)i << " ";
-      for(int count =0 ; count <=Dictionary[i]->Depth-1; count++){
-        //unsigned int ch = (Dictionary[i]->BiPath>>count)&1;
-        cout  << ((Dictionary[i]->BiPath>>count)&1);
-      } 
-      cout << endl;
-    }
+      bitset<8> path(Dictionary[i]->BiPath);
+      if(i == 10){
+        cout << "\\n " << path << endl;
+      }else{
+        cout << (char) i << " " << path << " Length: " << Dictionary[i]->Depth << endl;
+      }
+      treeCount++;
+     }
   }
+  //if(this->Root->LeftPtr->LeftPtr->RightPtr->LeftPtr->RightPtr->LeftPtr->RightPtr->LeftPtr->Data !=NULL){
+  // cout << this->Root->LeftPtr->LeftPtr->RightPtr->LeftPtr->RightPtr->LeftPtr->RightPtr->LeftPtr->Data << endl;
+  //}
+  cout << "Items in List: " << treeCount << endl;
 }

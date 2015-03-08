@@ -11,7 +11,7 @@ Read(){
 
 }
 
-void ReadFile(std::string filename, Tree HuffmanTree);
+void ReadFile(std::string filename, Tree HuffmanTree, long WriteCount);
 
 
 };
