@@ -2,7 +2,9 @@
  * List.cpp
  *
  *  Created on: Nov 19, 2014
- *      Author: jakob
+ * 
+
+     Author: jakob
  */
 #include <cstdlib>
 #include <iostream>
